@@ -16953,8 +16953,9 @@ static int wlan_hdd_cfg80211_set_ie(hdd_adapter_t *pAdapter, const uint8_t *ie,
 			tmp = tmp + 1;
 			akmlist = (int *)(tmp);
 			if (akmsuiteCount <= MAX_NUM_AKM_SUITES) {
-				memcpy(akmsuite, akmlist, (4 * akmsuiteCount));
-			} else {
+				qdf_mem_copy(akmsuite, akmlist,
+					     sizeof(uint32_t) * akmsuiteCount);
+ 			} else {
 				hdd_err("Invalid akmSuite count: %u",
 					akmsuiteCount);
 				QDF_ASSERT(0);
