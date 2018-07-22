@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() {
-kernel.string=CodeX by AxelBlaz3 @ xda-developers
+kernel.string=CodeX by MiguelNdeCarvalho&AxelBlaz3 @ xda-developers
 do.devicecheck=1
 do.modules=0
 do.cleanup=1
@@ -58,5 +58,3 @@ append_file fstab.tuna "usbdisk" fstab;
 write_boot;
 
 ## end install
-
-

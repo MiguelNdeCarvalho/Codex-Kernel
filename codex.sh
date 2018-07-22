@@ -39,9 +39,9 @@ white='\e[0;37m'        # White
 nocol='\033[0m'         # Default
 
 # Tweakable Stuff
-export KBUILD_BUILD_USER="axel"
+export KBUILD_BUILD_USER="MiguelNdeCarvalho"
 export KBUILD_BUILD_HOST="codex-bot"
-export KBUILD_COMPILER_STRING=$(/home/axel/clang-7.0/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
+export KBUILD_COMPILER_STRING=$(/home/builds/sources/Clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 
 #COMPILATION SCRIPTS
 echo -e "${green}"
@@ -59,7 +59,7 @@ echo -e "$red***********************************************"
 echo "          Cleaning Up Before Compile          "
 echo -e "***********************************************$nocol"
 
-make O=out clean 
+make O=out clean
 make O=out mrproper
 
 echo -e "$yellow***********************************************"
@@ -73,9 +73,9 @@ echo "          Cooking Codex!!        "
 echo -e "***********************************************$nocol"
 
 make -j$(nproc --all) O=out ARCH=arm64 \
-                      CC="/home/axel/clang-7.0/bin/clang" \
+                      CC="/home/builds/sources/Clang/bin/clang" \
                       CLANG_TRIPLE="aarch64-linux-gnu-" \
-                      CROSS_COMPILE="/home/axel/aarch64-linux-android-4.9/bin/aarch64-linux-android-"
+                      CROSS_COMPILE="/home/builds/sources/aarch64-linux-android-4.9/bin/aarch64-linux-android-"
 
 echo -e "$yellow***********************************************"
 echo "          Copying zImage        "
